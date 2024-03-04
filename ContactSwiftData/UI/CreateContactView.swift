@@ -48,9 +48,15 @@ struct CreateContactView: View {
                     Section {
                         TextField("Phone number", text: $phoneNumber)
                             .onChange(of: phoneNumber) { updateDoneButtonState() }
+                            .textContentType(.telephoneNumber)
+                            .keyboardType(.phonePad)
+                            .disableAutocorrection(true)
                         
                         TextField("Email", text: $email)
                             .onChange(of: email) { updateDoneButtonState() }
+                            .textContentType(.emailAddress)
+                            .keyboardType(.emailAddress)
+                            .disableAutocorrection(true)
                     }
                     
                     Section {
